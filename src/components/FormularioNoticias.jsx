@@ -11,8 +11,8 @@ const FormularioNoticias = () => {
       } = useForm();
     
   return (
-    <>
-      <Form>
+    <div className="border">
+      <Form className="border-bottom p-3">
         <Row>
           <Col xs='4'>
           <Form.Label>Categoria</Form.Label>
@@ -33,7 +33,7 @@ const FormularioNoticias = () => {
       </Form>
 
       <GrillaNoticias></GrillaNoticias>
-    </>
+    </div>
   );
 };
 
