@@ -1,22 +1,17 @@
 import React from 'react';
 import { Col,Card,Button } from 'react-bootstrap';
+import Titulo from './Titulo';
 
-const Noticia = () => {
+const Noticia = ({titulo, image_url, descripcion,}) => {
     return (
         <Col xs={12} md={6} lg={4} className='mb-4' >
         <Card>
           <Card.Header>
-            <Card.Title>Noticia</Card.Title>
+            <Titulo titulo={titulo}></Titulo>
           </Card.Header>
-          <Card.Body className="d-flex justify-content-center">
-            <div
-              className="cajaColorida"
-              style={{
-                backgroundColor: "white",
-                width: "10rem",
-                height: "8rem",
-              }}
-            ></div>
+            <Card.Img variant="top" src={image_url} />
+          <Card.Body className="d-flex justify-content-center flex-column">
+            <Card.Text>{descripcion} </Card.Text>
           </Card.Body>
           <Card.Footer className="d-flex justify-content-center">
             <Button variant="primary">
