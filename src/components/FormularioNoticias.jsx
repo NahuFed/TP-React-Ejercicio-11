@@ -6,38 +6,36 @@ const FormularioNoticias = () => {
   const [arrayNoticias, setArrayNoticias] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
+  
+
   useEffect(() => {
     consultarAPI();
-  }, [busqueda]);
+  }, []);
 
   const handleSelect = (e) => {
     setBusqueda(e.target.value);
-    filtrar(busqueda);
   };
+  // metodo de filtrado
 
-  const filtrar = (terminoBusqueda) => {
-    let resultadosBusqueda = arrayNoticias.filter((noticia) => {
-      if (
-        noticia.category
-          .toString()
-          .toLowerCase()
-          .includes(terminoBusqueda.toLowerCase())
-      ) {
-        return noticia;
-      }
-    });
-    setArrayNoticias(resultadosBusqueda);
-  };
+  let resultados = []
+  if(!busqueda){
+      resultados = arrayNoticias;
+  }else {
+      resultados = arrayNoticias.filter((noticia) =>       
+        noticia.category.toString().toLowerCase() ===
+        busqueda.toLowerCase());    
+  }
+
+
   const consultarAPI = async () => {
     //peticion GET
     try {
       const respuesta = await fetch(
         "https://newsdata.io/api/1/news?country=ar&apikey=pub_24185fcb0d47542298171f751b8c6946a2ab8"
       ); //direccion de la api
-      const datos = await respuesta.json();
-      console.log(respuesta);      
+      const datos = await respuesta.json();     
       setArrayNoticias(datos.results);
-      console.log(arrayNoticias);
+      console.log(arrayNoticias)
     } catch (error) {
       console.log(error);
     }
@@ -53,18 +51,28 @@ const FormularioNoticias = () => {
           <Col>
             <Form.Select
               aria-label="Default select example"
-              onSelect={(e) => handleSelect(e)}              
+              value={busqueda}
+              onChange={handleSelect}
             >
               <option value="">Selecciona la Categoria</option>
-              <option value="top">Top</option>
+              <option value="business">Negocios</option>
               <option value="entertainment">Entretenimiento</option>
+              <option value="environment">Medio Ambiente</option>
+              <option value="food">Comida</option>
+              <option value="health">Salud</option>
+              <option value="politics">Politica</option>
+              <option value="science">Ciencia</option>
+              <option value="sports">Deportes</option>
               <option value="technology">Tecnologia</option>
+              <option value="top">Top</option>
+              <option value="tourism">Turismo</option>
+              <option value="world">Mundo</option>
             </Form.Select>
           </Col>
         </Row>
       </Form>
 
-      <GrillaNoticias arrayNoticias={arrayNoticias}></GrillaNoticias>
+      <GrillaNoticias arrayNoticias={resultados}></GrillaNoticias>
     </div>
   );
 };
