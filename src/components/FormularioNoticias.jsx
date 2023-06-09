@@ -31,7 +31,7 @@ const FormularioNoticias = () => {
     //peticion GET
     try {
       const respuesta = await fetch(
-        "https://newsdata.io/api/1/news?country=ar&apikey=pub_24185fcb0d47542298171f751b8c6946a2ab8"
+        "https://newsdata.io/api/1/news?apikey=pub_24185381d5f4ddc39f57cef2b59ef72a9f8f6&country=ar"
       ); //direccion de la api
       const datos = await respuesta.json();     
       setArrayNoticias(datos.results);

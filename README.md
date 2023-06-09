@@ -29,5 +29,5 @@ Este proyecto está hecho con React y utiliza Vite como herramienta de desarroll
 
 ## Demo en Vivo(Netlify)
 
-Puedes acceder a una demo en vivo de la aplicación en [este enlace](https://ejercicio12react-nahuel-rodriguez.netlify.app).
+Puedes acceder a una demo en vivo de la aplicación en [este enlace](https://ejercicio11react-nahuel-rodriguez.netlify.app).
 
