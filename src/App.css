@@ -1,0 +1,22 @@
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .main{
+    flex-grow: 1;
+  }
+
+
+
+  .truncarTexto{    
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7; /* Número de líneas a mostrar antes de truncar */
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+  }
+  .card-body{    
+    overflow: hidden;    
+  }

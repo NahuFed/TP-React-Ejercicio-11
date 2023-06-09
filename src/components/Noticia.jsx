@@ -5,13 +5,13 @@ import Titulo from './Titulo';
 const Noticia = ({titulo, image_url, descripcion,}) => {
     return (
         <Col xs={12} md={6} lg={4} className='mb-4' >
-        <Card>
+        <Card className='h-100' >
           <Card.Header>
             <Titulo titulo={titulo}></Titulo>
           </Card.Header>
             <Card.Img variant="top" src={image_url} />
           <Card.Body className="d-flex justify-content-center flex-column">
-            <Card.Text>{descripcion} </Card.Text>
+            <Card.Text className='truncarTexto'>{descripcion} </Card.Text>
           </Card.Body>
           <Card.Footer className="d-flex justify-content-center">
             <Button variant="primary">
