@@ -1,6 +1,6 @@
-# Nombre de la Aplicación
+# Noticias filtradas por categoria
 
-Breve descripción de la aplicación.
+Ejercicio 11 tp react
 
 ## Instalación
 
